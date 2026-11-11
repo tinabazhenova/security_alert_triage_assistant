@@ -1,0 +1,4 @@
+# Runtime dependencies (versions match the working qabot environment)
+ibm-watsonx-ai==1.8.0
+langchain-ibm==1.1.2
+python-dotenv==1.2.4

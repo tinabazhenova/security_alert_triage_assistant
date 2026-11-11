@@ -1,9 +1,5 @@
-name: CI
-
-on:
-  push:
-  pull_request:
-
+name: ci
+on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -12,7 +8,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install ruff pytest
+      - run: pip install -r requirements.txt -r requirements-dev.txt
       - run: ruff check .
-      # exit code 5 = no tests collected; allow until tests exist
-      - run: pytest || [ $? -eq 5 ]
+      - run: pytest
